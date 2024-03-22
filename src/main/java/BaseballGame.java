@@ -22,6 +22,10 @@ public class BaseballGame {
 	}
 
 	private void printResult(int strike, int ball) {
+		if (strike == 0 && ball == 0) {
+			System.out.println("낫싱");
+			return;
+		}
 		if (strike > 0) {
 			System.out.print(strike + "스트라이크 ");
 		}
