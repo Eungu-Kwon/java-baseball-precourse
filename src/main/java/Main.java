@@ -1,7 +1,7 @@
 public class Main {
 	public static void main(String[] args) {
 		while (true) {
-			MainGame mg = new MainGame();
+			BaseballGame mg = new BaseballGame();
 			mg.mainloop();
 
 			// read res from user to continue game
