@@ -13,6 +13,23 @@ public class BaseballGame {
 		}
 	}
 
+	private boolean checkGameEnd(int strike) {
+		if (strike == 3) {
+			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
+			return true;
+		}
+		return false;
+	}
+
+	private void printResult(int strike, int ball) {
+		if (strike > 0) {
+			System.out.print(strike + "스트라이크 ");
+		}
+		if (ball > 0) {
+			System.out.println(ball + "볼");
+		}
+	}
+
 	private int getStrike(int num) {
 		String numStr = Integer.toString(num);
 		int ret = 0;
