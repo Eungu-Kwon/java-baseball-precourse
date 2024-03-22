@@ -6,25 +6,28 @@ public class BaseballGameController {
 		this.sc = scan;
 	}
 
-	public int readNum(int num) {
-		int val = readNum();
-		int valLen;
-		if (val < 0) {
-			return -1;
+	public String readNum(int num) {
+		String val = readNum();
+		try {
+			int valNum = Integer.parseInt(val.strip());
+			if (valNum < 0) {
+				return null;
+			}
+			if (val.length() == num) {
+				return val;
+			}
+		} catch (Exception e) {
+			return null;
 		}
-		valLen = Integer.toString(val).length();
-		if (valLen == num) {
-			return val;
-		}
-		return -1;
+		return null;
 	}
 
-	private int readNum() {
-		int val;
+	private String readNum() {
+		String val;
 		try {
-			val = sc.nextInt();
+			val = sc.next();
 		} catch (Exception e) {
-			val = -1;
+			val = null;
 		}
 		return val;
 	}

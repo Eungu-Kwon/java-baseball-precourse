@@ -34,22 +34,20 @@ public class BaseballGame {
 		}
 	}
 
-	private int getStrike(int num) {
-		String numStr = Integer.toString(num);
+	private int getStrike(String num) {
 		int ret = 0;
 		for (int i = 0; i < 3; ++i) {
-			if (numStr.charAt(i) == answer.charAt(i)) {
+			if (num.charAt(i) == answer.charAt(i)) {
 				ret++;
 			}
 		}
 		return ret;
 	}
 
-	private int getBall(int num) {
-		String numStr = Integer.toString(num);
+	private int getBall(String num) {
 		int ret = 0;
 		for (int i = 0; i < 3; ++i) {
-			if (isNumberContains(answer, numStr.charAt((i)))) {
+			if (num.charAt(i) != answer.charAt(i) && isNumberContains(answer, num.charAt((i)))) {
 				ret++;
 			}
 		}
