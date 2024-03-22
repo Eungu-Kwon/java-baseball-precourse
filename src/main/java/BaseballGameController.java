@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class BaseballGameController {
-	private Scanner sc;
+	private final Scanner sc;
 	public BaseballGameController(Scanner scan) {
 		this.sc = scan;
 	}
