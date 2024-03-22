@@ -5,9 +5,8 @@ public class BaseballGame {
 	Scanner sc;
 	BaseballGameController bgc;
 	int baseballCount = 3;
-	public BaseballGame(Scanner scan) {
-		this.sc = scan;
-		this.bgc = new BaseballGameController(sc);
+	public BaseballGame(BaseballGameController controller) {
+		this.bgc = controller;
 	}
 	public void mainLoop() {
 		while (true) {
