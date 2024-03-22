@@ -1,16 +1,37 @@
+import java.util.Scanner;
+
 public class BaseballGame {
-	String answer = "000";
-	public void mainloop() {
+	String answer = "123";
+	Scanner sc;
+	BaseballGameController bgc;
+	int baseballCount = 3;
+	public BaseballGame(Scanner scan) {
+		this.sc = scan;
+		this.bgc = new BaseballGameController(sc);
+	}
+	public void mainLoop() {
 		while (true) {
-			// read number
+			System.out.print("숫자를 입력해주세요: ");
+			String playerBall = bgc.readNum(baseballCount);
 
-			// check result
+			if (playerBall == null) {
+				System.out.println("입력 형식 에러, 다시 입력해주세요");
+				continue;
+			}
 
-			// print result
-
-			// if end then break
-			break;
+			if (calcProcess(playerBall)) {
+				break;
+			}
 		}
+	}
+
+	private boolean calcProcess(String playerBall) {
+		int strike = getStrike(playerBall);
+		int ball = getBall(playerBall);
+
+		printResult(strike, ball);
+
+		return checkGameEnd(strike);
 	}
 
 	private boolean checkGameEnd(int strike) {
