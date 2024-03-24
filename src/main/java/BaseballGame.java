@@ -41,7 +41,7 @@ public class BaseballGame {
 		return usrAns.equals("1");
 	}
 
-	private String createRandomNumber() {
+	public static String createRandomNumber() {
 		Random random = new Random();
 		StringBuilder ret = new StringBuilder();
 		random.setSeed(System.currentTimeMillis());
@@ -53,8 +53,8 @@ public class BaseballGame {
 	}
 
 	private boolean calcProcess(String playerBall) {
-		int strike = getStrike(playerBall);
-		int ball = getBall(playerBall);
+		int strike = getStrike(playerBall, this.answer);
+		int ball = getBall(playerBall, this.answer);
 
 		printResult(strike, ball);
 
@@ -84,27 +84,27 @@ public class BaseballGame {
 		System.out.println();
 	}
 
-	private int getStrike(String num) {
+	public static int getStrike(String num, String ans) {
 		int ret = 0;
 		for (int i = 0; i < 3; ++i) {
-			if (num.charAt(i) == answer.charAt(i)) {
+			if (num.charAt(i) == ans.charAt(i)) {
 				ret++;
 			}
 		}
 		return ret;
 	}
 
-	private int getBall(String num) {
+	public static int getBall(String num, String ans) {
 		int ret = 0;
 		for (int i = 0; i < 3; ++i) {
-			if (num.charAt(i) != answer.charAt(i) && isNumberContains(num, answer.charAt((i)))) {
+			if (num.charAt(i) != ans.charAt(i) && isNumberContains(num, ans.charAt((i)))) {
 				ret++;
 			}
 		}
 		return ret;
 	}
 
-	private boolean isNumberContains(String num, char ch) {
+	public static boolean isNumberContains(String num, char ch) {
 		for (int i = 0; i < num.length(); i++) {
 			if (num.charAt(i) == ch) {
 				return true;
