@@ -1,12 +1,13 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class BaseballGame {
 	String answer = "123";
-	Scanner sc;
 	BaseballGameController bgc;
 	int baseballCount = 3;
 	public BaseballGame(BaseballGameController controller) {
 		this.bgc = controller;
+		this.answer = createRandomNumber();
+		//System.out.println(answer);
 	}
 	public void mainLoop() {
 		while (true) {
@@ -22,6 +23,17 @@ public class BaseballGame {
 				break;
 			}
 		}
+	}
+
+	private String createRandomNumber() {
+		Random random = new Random();
+		StringBuilder ret = new StringBuilder();
+		random.setSeed(System.currentTimeMillis());
+
+		for (int i = 0; i < 3; i++) {
+			ret.append(random.nextInt(10));
+		}
+		return ret.toString();
 	}
 
 	private boolean calcProcess(String playerBall) {
