@@ -51,7 +51,9 @@ public class BaseballGame {
 		}
 		if (ball > 0) {
 			System.out.println(ball + "볼");
+			return;
 		}
+		System.out.println();
 	}
 
 	private int getStrike(String num) {
