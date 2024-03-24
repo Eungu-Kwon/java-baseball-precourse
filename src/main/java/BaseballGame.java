@@ -67,7 +67,7 @@ public class BaseballGame {
 	private int getBall(String num) {
 		int ret = 0;
 		for (int i = 0; i < 3; ++i) {
-			if (num.charAt(i) != answer.charAt(i) && isNumberContains(answer, num.charAt((i)))) {
+			if (num.charAt(i) != answer.charAt(i) && isNumberContains(num, answer.charAt((i)))) {
 				ret++;
 			}
 		}
