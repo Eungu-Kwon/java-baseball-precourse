@@ -7,9 +7,9 @@ public class BaseballGame {
 	public BaseballGame(BaseballGameController controller) {
 		this.bgc = controller;
 		this.answer = createRandomNumber();
-		//System.out.println(answer);
+		System.out.println(answer);
 	}
-	public void mainLoop() {
+	public boolean mainLoop() {
 		while (true) {
 			System.out.print("숫자를 입력해주세요: ");
 			String playerBall = bgc.readNum(baseballCount);
@@ -23,6 +23,22 @@ public class BaseballGame {
 				break;
 			}
 		}
+		return askAgain();
+	}
+
+	private boolean askAgain() {
+		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+		String usrAns;
+		while (true) {
+			usrAns = bgc.readNum(1);
+
+			if (usrAns == null || !(usrAns.equals("1") || usrAns.equals("2"))) {
+				System.out.println("입력 형식 에러, 다시 입력해주세요");
+				continue;
+			}
+			break;
+		}
+		return usrAns.equals("1");
 	}
 
 	private String createRandomNumber() {

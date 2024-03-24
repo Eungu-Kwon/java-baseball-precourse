@@ -6,10 +6,9 @@ public class Main {
 		BaseballGameController bgc = new BaseballGameController(sc);
 		while (true) {
 			BaseballGame mg = new BaseballGame(bgc);
-			mg.mainLoop();
-
-			// read res from user to continue game
-			// if end then break
+			if (mg.mainLoop()) {
+				continue;
+			}
 			break;
 		}
 	}
